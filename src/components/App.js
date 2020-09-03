@@ -2,72 +2,42 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
+import PopupWithForm from './PopupWithForm';
+import ImagePopup from './ImagePopup';
 
 export default class App extends React.Component {
   render() {
     return (
       <div className="page">
+
         <Header />
         <Main />
         <Footer />
 
-        <section className="popup popup_profileedit">
-          <form className="popup__container" action="#" method="POST" name="popupform" novalidate>
-            <h2 className="popup__title">Редактировать профиль</h2>
+        <PopupWithForm name="profileedit" title="Редактировать профиль" buttonTitle="Сохранить">
+          <input className="popup__input popup__input_name popup__input_top" type="text" name="name" placeholder="Имя" required minLength="2" maxLength="40" />
+          <span id="popup__input_name_error" className="popup__input_type_error"></span>
 
-            <input className="popup__input popup__input_name" type="text" name="name" placeholder="Имя" required minlength="2" maxlength="40" />
-            <span id="popup__input_name_error" class="popup__input_type_error"></span>
+          <input className="popup__input popup__input_about" type="text" name="about" placeholder="Описание" required minLength="2" maxLength="200" />
+          <span id="popup__input_about_error" className="popup__input_type_error"></span>
+        </PopupWithForm>
 
-            <input className="popup__input popup__input_about" type="text" name="about" placeholder="Описание" required minlength="2" maxlength="200" />
-            <span id="popup__input_about_error" class="popup__input_type_error"></span>
+        <PopupWithForm name="newplace" title="Новое место" buttonTitle="Сохранить">
+          <input className="popup__input popup__input_photoname popup__input_top" type="text" name="photoName" placeholder="Название" required minLength="1" maxLength="30" />
+          <span id="popup__input_photoName_error" className="popup__input_type_error"></span>
 
-            <button className="popup__submit" type="submit">Сохранить</button>
-            <button className="popup__reset" type="button"></button>
-          </form>
-        </section>
+          <input className="popup__input popup__input_photourl" type="url" name="photoUrl" placeholder="Ссылка на картинку" required />
+          <span id="popup__input_photoUrl_error" className="popup__input_type_error"></span>
+        </PopupWithForm>
 
-        <section className="popup popup_newplace">
-          <form className="popup__container" action="#" method="POST" name="popupplace" novalidate>
-            <h2 className="popup__title">Новое место</h2>
+        <PopupWithForm name="confirm" title="Вы уверены?" buttonTitle="Да" />
 
-            <input className="popup__input popup__input_photoname" type="text" name="photoName" placeholder="Название" required minlength="1" maxlength="30" />
-            <span id="popup__input_photoName_error" className="popup__input_type_error"></span>
+        <PopupWithForm name="newavatar" title="Обновить аватар" buttonTitle="Сохранить">
+          <input className="popup__input popup__input_avatar  popup__input_top" type="url" name="avatar" placeholder="Ссылка на картинку" required />
+          <span id="popup__input_avatar_error" className="popup__input_type_error"></span>
+        </PopupWithForm>
 
-            <input className="popup__input popup__input_photourl" type="url" name="photoUrl" placeholder="Ссылка на картинку" required />
-            <span id="popup__input_photoUrl_error" className="popup__input_type_error"></span>
-
-            <button className="popup__submit" type="submit">Сохранить</button>
-            <button className="popup__reset" type="button"></button>
-          </form>
-        </section>
-
-        <section className="popup popup_newavatar">
-          <form className="popup__container popup_avaeditor" action="#" method="POST" name="popupavatar" novalidate>
-            <h2 className="popup__title">Обновить аватар</h2>
-
-            <input className="popup__input popup__input_avatar" type="url" name="avatar" placeholder="Ссылка на картинку" required />
-            <span id="popup__input_avatar_error" class="popup__input_type_error"></span>
-
-            <button className="popup__submit" type="submit">Сохранить</button>
-            <button className="popup__reset" type="button"></button>
-          </form>
-        </section>
-
-        <section className="popup popup_confirm" action="#" method="POST" name="popupconfirm" novalidate>
-          <form className="popup__container popup__question">
-            <h2 className="popup__text">Вы уверены?</h2>
-            <button className="popup__submit" type="submit">Да</button>
-            <button className="popup__reset" type="button"></button>
-          </form>
-        </section>
-
-        <section className="popup popup_view">
-          <div className="popup__photoview">
-            <img className="popup__image" alt="Просмотр фото" src="./images/placesphotos/not.png" />
-            <h2 className="popup__imagetitle">_</h2>
-            <button className="popup__reset" type="button"></button>
-          </div>
-        </section>
+        <ImagePopup />
 
         <template id="card">
           <div className="photocard">
