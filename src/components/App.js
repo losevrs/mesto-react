@@ -6,15 +6,50 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEditProfilePopupOpen: false,
+      isAddPlacePopupOpen: false,
+      isEditAvatarPopupOpen: false
+    }
+  }
+
+  closeAllPopups = () => {
+    this.setState({
+      isEditProfilePopupOpen: false,
+      isAddPlacePopupOpen: false,
+      isEditAvatarPopupOpen: false
+    });
+  }
+
+  handleEditAvatarClick = () => {
+    this.setState({ isEditAvatarPopupOpen: true });
+  };
+
+  handleEditProfileClick = () => {
+    this.setState({ isEditProfilePopupOpen: true });
+  };
+
+  handleAddPlaceClick = () => {
+    this.setState({ isAddPlacePopupOpen: true });
+  };
+
   render() {
     return (
       <div className="page">
 
         <Header />
-        <Main />
+        <Main onEditProfile={this.handleEditProfileClick}
+          onAddPlace={this.handleAddPlaceClick}
+          onEditAvatar={this.handleEditAvatarClick} />
         <Footer />
 
-        <PopupWithForm name="profileedit" title="Редактировать профиль" buttonTitle="Сохранить">
+        <PopupWithForm name="profileedit"
+          title="Редактировать профиль"
+          buttonTitle="Сохранить"
+          isOpened={this.state.isEditProfilePopupOpen} 
+          onClose={this.closeAllPopups}>
           <input className="popup__input popup__input_name popup__input_top" type="text" name="name" placeholder="Имя" required minLength="2" maxLength="40" />
           <span id="popup__input_name_error" className="popup__input_type_error"></span>
 
@@ -22,7 +57,11 @@ export default class App extends React.Component {
           <span id="popup__input_about_error" className="popup__input_type_error"></span>
         </PopupWithForm>
 
-        <PopupWithForm name="newplace" title="Новое место" buttonTitle="Сохранить">
+        <PopupWithForm name="newplace"
+          title="Новое место"
+          buttonTitle="Сохранить"
+          isOpened={this.state.isAddPlacePopupOpen}
+          onClose={this.closeAllPopups}>
           <input className="popup__input popup__input_photoname popup__input_top" type="text" name="photoName" placeholder="Название" required minLength="1" maxLength="30" />
           <span id="popup__input_photoName_error" className="popup__input_type_error"></span>
 
@@ -32,7 +71,11 @@ export default class App extends React.Component {
 
         <PopupWithForm name="confirm" title="Вы уверены?" buttonTitle="Да" />
 
-        <PopupWithForm name="newavatar" title="Обновить аватар" buttonTitle="Сохранить">
+        <PopupWithForm name="newavatar"
+          title="Обновить аватар"
+          buttonTitle="Сохранить"
+          isOpened={this.state.isEditAvatarPopupOpen}
+          onClose={this.closeAllPopups}>
           <input className="popup__input popup__input_avatar  popup__input_top" type="url" name="avatar" placeholder="Ссылка на картинку" required />
           <span id="popup__input_avatar_error" className="popup__input_type_error"></span>
         </PopupWithForm>

@@ -5,18 +5,26 @@ export default class PopupWithForm extends React.Component {
     super(props);
     this.state = {
       name: props.name,
-      title: props.title,
-      buttonTitle: props.buttonTitle
-    };
+      onClose: props.onClose
+    }
   }
+
+  closeOnOverlay = (event) => {
+    if (event.target === document.querySelector(`.popup_${this.state.name}`)) {
+      this.state.onClose();
+    }
+  }
+  
   render() {
     return (
-      <section className={`popup popup_${this.state.name}`} action="#" method="POST" name={`${this.state.name}`} noValidate >
+      <section className={`popup popup_${this.props.name} ${this.props.isOpened && "popup_opened"}`}
+        action="#" method="POST" name={`${this.props.name}`} noValidate 
+        onClick={this.closeOnOverlay}>
         <form className="popup__container">
-          <h2 className="popup__title">{`${this.state.title}`}</h2>
+          <h2 className="popup__title">{`${this.props.title}`}</h2>
           {this.props.children}
-          <button className="popup__submit" type="submit">{this.state.buttonTitle}</button>
-          <button className="popup__reset" type="button"></button>
+          <button className="popup__submit" type="submit">{this.props.buttonTitle}</button>
+          <button className="popup__reset" type="button" onClick={this.state.onClose}></button>
         </form>
       </section>
     );
