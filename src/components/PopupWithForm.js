@@ -15,10 +15,9 @@ export default class PopupWithForm extends React.Component {
   render() {
     return (
       <section className={`popup popup_${this.props.name} ${this.props.isOpened && "popup_opened"}`}
-        action="#" method="POST" name={`${this.props.name}`} noValidate 
         onClick={this.closeOnOverlay}
         ref={this.popupOverlay}>
-        <form className="popup__container">
+        <form className="popup__container" action="#" method="POST" name={`${this.props.name}`} noValidate >
           <h2 className="popup__title">{`${this.props.title}`}</h2>
           {this.props.children}
           <button className="popup__submit" type="submit">{this.props.buttonTitle}</button>

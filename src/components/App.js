@@ -12,7 +12,8 @@ export default class App extends React.Component {
       isEditProfilePopupOpen: false,
       isAddPlacePopupOpen: false,
       isEditAvatarPopupOpen: false,
-      selectedCard: null
+      selectedCard: null,
+      isImagePopupOpen: false
     };
   }
 
@@ -21,14 +22,18 @@ export default class App extends React.Component {
       isEditProfilePopupOpen: false,
       isAddPlacePopupOpen: false,
       isEditAvatarPopupOpen: false,
-      selectedCard: null
+      selectedCard: null,
+      isImagePopupOpen: false
     });
   }
 
-  handleCardClick = () => {
-
+  handleCardClick = (card) => {
+    this.setState({
+      selectedCard: card,
+      isImagePopupOpen: true
+    });
   }
-  
+
   handleEditAvatarClick = () => {
     this.setState({ isEditAvatarPopupOpen: true });
   };
@@ -46,12 +51,12 @@ export default class App extends React.Component {
       <div className="page">
 
         <Header />
-        
+
         <Main onEditProfile={this.handleEditProfileClick}
           onAddPlace={this.handleAddPlaceClick}
-          onEditAvatar={this.handleEditAvatarClick} 
-          onErrorImage={this.onErrorLoadImage}/>
-        
+          onEditAvatar={this.handleEditAvatarClick}
+          onErrorImage={this.onErrorLoadImage} />
+
         <Footer />
 
         <PopupWithForm name="profileedit"
@@ -92,10 +97,10 @@ export default class App extends React.Component {
 
           <input className="popup__input popup__input_avatar  popup__input_top" type="url" name="avatar" placeholder="Ссылка на картинку" required />
           <span id="popup__input_avatar_error" className="popup__input_type_error"></span>
-        
+
         </PopupWithForm>
 
-        <ImagePopup />
+        <ImagePopup card={this.state.selectedCard} isOpened={this.state.isImagePopupOpen} />
 
       </div>
     );
