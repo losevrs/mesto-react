@@ -1,4 +1,5 @@
 import React from 'react';
+import Popup from './Popup';
 
 export default class PopupWithForm extends React.Component {
   constructor(props) {
@@ -11,19 +12,20 @@ export default class PopupWithForm extends React.Component {
       this.props.onClose();
     }
   }
-  
+
   render() {
     return (
-      <section className={`popup popup_${this.props.name} ${this.props.isOpened && "popup_opened"}`}
-        onClick={this.closeOnOverlay}
-        ref={this.popupOverlay}>
+      <Popup
+        name={this.props.name}
+        isOpened={this.props.isOpened}
+        onClose={this.props.onClose}>
         <form className="popup__container" action="#" method="POST" name={`${this.props.name}`} noValidate >
           <h2 className="popup__title">{`${this.props.title}`}</h2>
           {this.props.children}
           <button className="popup__submit" type="submit">{this.props.buttonTitle}</button>
           <button className="popup__reset" type="button" onClick={this.props.onClose}></button>
         </form>
-      </section>
+      </Popup>
     );
   }
 }

@@ -101,6 +101,7 @@ export default class App extends React.Component {
         </PopupWithForm>
 
         <ImagePopup card={this.state.selectedCard} 
+        name="view"
         isOpened={this.state.isImagePopupOpen} 
         onClose={this.closeAllPopups} />
 
