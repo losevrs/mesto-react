@@ -12,7 +12,7 @@ export default class App extends React.Component {
       isEditProfilePopupOpen: false,
       isAddPlacePopupOpen: false,
       isEditAvatarPopupOpen: false,
-      selectedCard: null,
+      selectedCard: {},
       isImagePopupOpen: false
     };
   }
@@ -22,7 +22,7 @@ export default class App extends React.Component {
       isEditProfilePopupOpen: false,
       isAddPlacePopupOpen: false,
       isEditAvatarPopupOpen: false,
-      selectedCard: null,
+      selectedCard: {},
       isImagePopupOpen: false
     });
   }
@@ -55,7 +55,7 @@ export default class App extends React.Component {
         <Main onEditProfile={this.handleEditProfileClick}
           onAddPlace={this.handleAddPlaceClick}
           onEditAvatar={this.handleEditAvatarClick}
-          onErrorImage={this.onErrorLoadImage} />
+          onCardClick={this.handleCardClick} />
 
         <Footer />
 
@@ -100,7 +100,9 @@ export default class App extends React.Component {
 
         </PopupWithForm>
 
-        <ImagePopup card={this.state.selectedCard} isOpened={this.state.isImagePopupOpen} />
+        <ImagePopup card={this.state.selectedCard} 
+        isOpened={this.state.isImagePopupOpen} 
+        onClose={this.closeAllPopups} />
 
       </div>
     );

@@ -43,8 +43,8 @@ export default class Main extends React.Component {
         <section className="profile">
           <img className="profile__avatar"
             src={this.state.userAvatar} alt="Аватар пользователя"
-            onClick={this.props.onEditAvatar} 
-            onError={this.onErrorImage}/>
+            onClick={this.props.onEditAvatar}
+            onError={this.onErrorImage} />
           <div className="profile__info">
             <div className="profile__title">
               <h1 className="profile__name">{this.state.userName}</h1>
@@ -57,7 +57,7 @@ export default class Main extends React.Component {
 
         <section className="placesphotos">
           {this.state.cards.map(card =>
-            <Card key={card._id} name={card.name} link={card.link} likes={card.likes} />)};
+            <Card key={card._id} card={card} onCardClick={this.props.onCardClick} />)}
         </section>
       </main>
     );

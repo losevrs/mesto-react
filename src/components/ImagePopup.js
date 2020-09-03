@@ -1,14 +1,14 @@
 import React from 'react';
-import notImage from '../images/placesphotos/not.png';
 
 export default class ImagePopup extends React.Component {
   render() {
+    console.log(this.props);
     return (
-      <section className="popup popup_view">
+      <section className={`popup popup_view ${this.props.isOpened && "popup_opened"}`}>
         <div className="popup__photoview">
-          <img className="popup__image" alt="Просмотр фото" src={notImage} />
-          <h2 className="popup__imagetitle">_</h2>
-          <button className="popup__reset" type="button"></button>
+          <img className="popup__image" alt="Просмотр фото" src={this.props.card.link} />
+          <h2 className="popup__imagetitle">{this.props.card.name}</h2>
+          <button className="popup__reset" type="button" onClick={this.props.onClose}></button>
         </div>
       </section>
     );
