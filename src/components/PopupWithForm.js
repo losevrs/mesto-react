@@ -2,17 +2,6 @@ import React from 'react';
 import Popup from './Popup';
 
 export default class PopupWithForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.popupOverlay = React.createRef();
-  }
-
-  closeOnOverlay = (event) => {
-    if (event.target === this.popupOverlay.current) {
-      this.props.onClose();
-    }
-  }
-
   render() {
     return (
       <Popup
