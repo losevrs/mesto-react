@@ -1,6 +1,5 @@
 import React from 'react';
-import errorImage from '../images/onerror.jpg';
-import { api } from '../utils/Api';
+import ImageWithError from './ImageWithError'
 
 export default class Card extends React.Component {
   constructor(props) {
@@ -14,18 +13,11 @@ export default class Card extends React.Component {
     this.props.onCardClick(this.props.card);
   }
 
-  onErrorImage = () => {
-    this.setState({
-      image: errorImage
-    })
-  }
-
   render() {
     return (
       <div className="photocard">
-        <img className="photocard__viewport"
+        <ImageWithError className="photocard__viewport"
           src={this.state.image} alt="Фото места" 
-          onError={this.onErrorImage}
           onClick={this.handleClick}/>
         <button className="photocard__delete" type="button"></button>
         <div className="photocard__description">

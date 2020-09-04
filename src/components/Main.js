@@ -1,6 +1,6 @@
 import React from 'react';
 import avatar from '../images/profile/member.png';
-import errorImage from '../images/onerror.jpg';
+import ImageWithError from './ImageWithError'
 
 import Card from './Card';
 import { api } from '../utils/Api';
@@ -31,20 +31,13 @@ export default class Main extends React.Component {
       .catch((error) => console.log('Ошибка запроса -> ' + error));
   }
 
-  onErrorImage = () => {
-    this.setState({
-      userAvatar: errorImage
-    })
-  }
-
   render() {
     return (
       <main className="main">
         <section className="profile">
-          <img className="profile__avatar"
+          <ImageWithError className="profile__avatar"
             src={this.state.userAvatar} alt="Аватар пользователя"
-            onClick={this.props.onEditAvatar}
-            onError={this.onErrorImage} />
+            onClick={this.props.onEditAvatar}/>
           <div className="profile__info">
             <div className="profile__title">
               <h1 className="profile__name">{this.state.userName}</h1>
