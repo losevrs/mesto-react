@@ -32,7 +32,8 @@ export default class ImageWithError extends React.Component {
   render() {
     return (
       <img className={this.props.className}
-        src={this.state.image} alt={this.props.alt}
+        src={this.state.image}
+        alt={this.props.alt}
         onError={this.onLoadImageError}
         onClick={this.props.onClick} />
     );

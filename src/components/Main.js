@@ -40,7 +40,8 @@ export default class Main extends React.Component {
       <main className='main'>
         <section className={`profile ${this.state.hidden && 'profile_hidden'}`}>
           <ImageWithError className='profile__avatar'
-            src={this.state.userAvatar} alt='Аватар пользователя'
+            src={this.state.userAvatar}
+            alt='Аватар пользователя'
             onClick={this.props.onEditAvatar} />
           <div className='profile__info'>
             <div className='profile__title'>

@@ -14,8 +14,9 @@ export default class ImagePopup extends React.PureComponent {
             alt="Просмотр фото"
             src={this.props.card.link} />
           <h2 className="popup__imagetitle">{this.props.card.name}</h2>
-          <button className="popup__reset" type="button"
-            onClick={this.props.onClose}/>
+          <button className="popup__reset"
+            type="button"
+            onClick={this.props.onClose} />
         </div>
       </Popup>
     );
