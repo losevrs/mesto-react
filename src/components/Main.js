@@ -12,7 +12,8 @@ export default class Main extends React.Component {
       userName: '',
       userDescription: '',
       userAvatar: avatar,
-      cards: []
+      cards: [],
+      hidden: true
     };
 
     this.handleAddPlaceClick = props.onAddPlace;
@@ -28,27 +29,32 @@ export default class Main extends React.Component {
           cards: initialCards
         })
       })
-      .catch((error) => console.log('Ошибка запроса -> ' + error));
+      .catch((error) => console.log('Ошибка запроса -> ' + error))
+      .finally(() => {
+       this.setState({
+          hidden: false
+       });
+      });
   }
 
   render() {
     return (
-      <main className="main">
-        <section className="profile">
-          <ImageWithError className="profile__avatar"
-            src={this.state.userAvatar} alt="Аватар пользователя"
+      <main className='main'>
+        <section className={`profile ${this.state.hidden && 'profile_hidden'}`}>
+          <ImageWithError className='profile__avatar'
+            src={this.state.userAvatar} alt='Аватар пользователя'
             onClick={this.props.onEditAvatar}/>
-          <div className="profile__info">
-            <div className="profile__title">
-              <h1 className="profile__name">{this.state.userName}</h1>
-              <button className="profile__editbutton" onClick={this.props.onEditProfile} type="button"></button>
+          <div className='profile__info'>
+            <div className='profile__title'>
+              <h1 className='profile__name'>{this.state.userName}</h1>
+              <button className='profile__editbutton' onClick={this.props.onEditProfile} type="button"></button>
             </div>
-            <p className="profile__about">{this.state.userDescription}</p>
+            <p className='profile__about'>{this.state.userDescription}</p>
           </div>
-          <button className="profile__addbutton" onClick={this.props.onAddPlace} type="button"></button>
+          <button className='profile__addbutton' onClick={this.props.onAddPlace} type="button"></button>
         </section>
 
-        <section className="placesphotos">
+        <section className='placesphotos'>
           {this.state.cards.map(card =>
             <Card key={card._id} card={card} onCardClick={this.props.onCardClick} />)}
         </section>
