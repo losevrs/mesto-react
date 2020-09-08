@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.93599bbf.chunk.css",
-    "main.js": "/static/js/main.a315913b.chunk.js",
-    "main.js.map": "/static/js/main.a315913b.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e8402bce.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e8402bce.js.map",
-    "static/js/2.d6310a79.chunk.js": "/static/js/2.d6310a79.chunk.js",
-    "static/js/2.d6310a79.chunk.js.map": "/static/js/2.d6310a79.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.390355de2f889c26265f15d9175141c0.js": "/precache-manifest.390355de2f889c26265f15d9175141c0.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.93599bbf.chunk.css.map": "/static/css/main.93599bbf.chunk.css.map",
-    "static/js/2.d6310a79.chunk.js.LICENSE.txt": "/static/js/2.d6310a79.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/static/media/plus22.b2fce4ac.svg",
-    "static/media/logo.svg": "/static/media/logo.c6f11019.svg",
-    "static/media/onerror.jpg": "/static/media/onerror.a6166131.jpg"
+    "main.css": "/losevrs/mesto-reactstatic/css/main.8e005689.chunk.css",
+    "main.js": "/losevrs/mesto-reactstatic/js/main.9aa6f838.chunk.js",
+    "main.js.map": "/losevrs/mesto-reactstatic/js/main.9aa6f838.chunk.js.map",
+    "runtime-main.js": "/losevrs/mesto-reactstatic/js/runtime-main.188f3e49.js",
+    "runtime-main.js.map": "/losevrs/mesto-reactstatic/js/runtime-main.188f3e49.js.map",
+    "static/js/2.d6310a79.chunk.js": "/losevrs/mesto-reactstatic/js/2.d6310a79.chunk.js",
+    "static/js/2.d6310a79.chunk.js.map": "/losevrs/mesto-reactstatic/js/2.d6310a79.chunk.js.map",
+    "index.html": "/losevrs/mesto-reactindex.html",
+    "precache-manifest.5a5b1e6adbb6d572ecb0f1581ebb75d6.js": "/losevrs/mesto-reactprecache-manifest.5a5b1e6adbb6d572ecb0f1581ebb75d6.js",
+    "service-worker.js": "/losevrs/mesto-reactservice-worker.js",
+    "static/css/main.8e005689.chunk.css.map": "/losevrs/mesto-reactstatic/css/main.8e005689.chunk.css.map",
+    "static/js/2.d6310a79.chunk.js.LICENSE.txt": "/losevrs/mesto-reactstatic/js/2.d6310a79.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/losevrs/mesto-reactstatic/media/plus22.b2fce4ac.svg",
+    "static/media/logo.svg": "/losevrs/mesto-reactstatic/media/logo.c6f11019.svg",
+    "static/media/onerror.jpg": "/losevrs/mesto-reactstatic/media/onerror.a6166131.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e8402bce.js",
+    "static/js/runtime-main.188f3e49.js",
     "static/js/2.d6310a79.chunk.js",
-    "static/css/main.93599bbf.chunk.css",
-    "static/js/main.a315913b.chunk.js"
+    "static/css/main.8e005689.chunk.css",
+    "static/js/main.9aa6f838.chunk.js"
   ]
 }
