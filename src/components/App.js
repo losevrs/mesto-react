@@ -66,10 +66,10 @@ export default class App extends React.Component {
           onClose={this.closeAllPopups}>
 
           <input className="popup__input popup__input_name popup__input_top" type="text" name="name" placeholder="Имя" required minLength="2" maxLength="40" />
-          <span id="popup__input_name_error" className="popup__input_type_error"></span>
+          <span id="popup__input_name_error" className="popup__input_type_error"/>
 
           <input className="popup__input popup__input_about" type="text" name="about" placeholder="Описание" required minLength="2" maxLength="200" />
-          <span id="popup__input_about_error" className="popup__input_type_error"></span>
+          <span id="popup__input_about_error" className="popup__input_type_error"/>
 
         </PopupWithForm>
 
@@ -80,10 +80,10 @@ export default class App extends React.Component {
           onClose={this.closeAllPopups}>
 
           <input className="popup__input popup__input_photoname popup__input_top" type="text" name="photoName" placeholder="Название" required minLength="1" maxLength="30" />
-          <span id="popup__input_photoName_error" className="popup__input_type_error"></span>
+          <span id="popup__input_photoName_error" className="popup__input_type_error"/>
 
           <input className="popup__input popup__input_photourl" type="url" name="photoUrl" placeholder="Ссылка на картинку" required />
-          <span id="popup__input_photoUrl_error" className="popup__input_type_error"></span>
+          <span id="popup__input_photoUrl_error" className="popup__input_type_error"/>
 
         </PopupWithForm>
 
@@ -96,7 +96,7 @@ export default class App extends React.Component {
           onClose={this.closeAllPopups}>
 
           <input className="popup__input popup__input_avatar  popup__input_top" type="url" name="avatar" placeholder="Ссылка на картинку" required />
-          <span id="popup__input_avatar_error" className="popup__input_type_error"></span>
+          <span id="popup__input_avatar_error" className="popup__input_type_error"/>
 
         </PopupWithForm>
 

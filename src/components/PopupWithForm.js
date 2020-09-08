@@ -1,7 +1,7 @@
 import React from 'react';
 import Popup from './Popup';
 
-export default class PopupWithForm extends React.Component {
+export default class PopupWithForm extends React.PureComponent {
   render() {
     return (
       <Popup
@@ -12,7 +12,7 @@ export default class PopupWithForm extends React.Component {
           <h2 className="popup__title">{`${this.props.title}`}</h2>
           {this.props.children}
           <button className="popup__submit" type="submit">{this.props.buttonTitle}</button>
-          <button className="popup__reset" type="button" onClick={this.props.onClose}></button>
+          <button className="popup__reset" type="button" onClick={this.props.onClose}/>
         </form>
       </Popup>
     );

@@ -31,9 +31,7 @@ export default class Main extends React.Component {
       })
       .catch((error) => console.log('Ошибка запроса -> ' + error))
       .finally(() => {
-       this.setState({
-          hidden: false
-       });
+        this.setState({ hidden: false });
       });
   }
 
@@ -43,20 +41,26 @@ export default class Main extends React.Component {
         <section className={`profile ${this.state.hidden && 'profile_hidden'}`}>
           <ImageWithError className='profile__avatar'
             src={this.state.userAvatar} alt='Аватар пользователя'
-            onClick={this.props.onEditAvatar}/>
+            onClick={this.props.onEditAvatar} />
           <div className='profile__info'>
             <div className='profile__title'>
               <h1 className='profile__name'>{this.state.userName}</h1>
-              <button className='profile__editbutton' onClick={this.props.onEditProfile} type="button"></button>
+              <button className='profile__editbutton'
+                onClick={this.props.onEditProfile}
+                type="button" />
             </div>
             <p className='profile__about'>{this.state.userDescription}</p>
           </div>
-          <button className='profile__addbutton' onClick={this.props.onAddPlace} type="button"></button>
+          <button className='profile__addbutton'
+            onClick={this.props.onAddPlace}
+            type="button" />
         </section>
 
         <section className='placesphotos'>
           {this.state.cards.map(card =>
-            <Card key={card._id} card={card} onCardClick={this.props.onCardClick} />)}
+            <Card key={card._id}
+              card={card}
+              onCardClick={this.props.onCardClick} />)}
         </section>
       </main>
     );

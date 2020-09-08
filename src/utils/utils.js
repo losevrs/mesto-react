@@ -7,6 +7,4 @@ const validationSettings = {
   errorClass: 'popup__error_visible',
 }
 
-const cardSelector = '#card';
-
-export {validationSettings, cardSelector}
+export {validationSettings}
