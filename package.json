@@ -12,6 +12,11 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://losevrs.github.io/mesto-react.git"
+  },
+  "homepage": "https://losevrs.github.io/mesto-react/",
   "scripts": {
     "startdev": "react-scripts start --mode development",
     "start": "react-scripts start",
