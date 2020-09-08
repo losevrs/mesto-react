@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/losevrs/mesto-react/static/css/main.cd970ee9.chunk.css",
-    "main.js": "/losevrs/mesto-react/static/js/main.124af7e2.chunk.js",
-    "main.js.map": "/losevrs/mesto-react/static/js/main.124af7e2.chunk.js.map",
-    "runtime-main.js": "/losevrs/mesto-react/static/js/runtime-main.daa676ec.js",
-    "runtime-main.js.map": "/losevrs/mesto-react/static/js/runtime-main.daa676ec.js.map",
-    "static/js/2.d6310a79.chunk.js": "/losevrs/mesto-react/static/js/2.d6310a79.chunk.js",
-    "static/js/2.d6310a79.chunk.js.map": "/losevrs/mesto-react/static/js/2.d6310a79.chunk.js.map",
-    "index.html": "/losevrs/mesto-react/index.html",
-    "precache-manifest.ab7aeef6adf6c3361e3557f75895a74a.js": "/losevrs/mesto-react/precache-manifest.ab7aeef6adf6c3361e3557f75895a74a.js",
-    "service-worker.js": "/losevrs/mesto-react/service-worker.js",
-    "static/css/main.cd970ee9.chunk.css.map": "/losevrs/mesto-react/static/css/main.cd970ee9.chunk.css.map",
-    "static/js/2.d6310a79.chunk.js.LICENSE.txt": "/losevrs/mesto-react/static/js/2.d6310a79.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/losevrs/mesto-react/static/media/plus22.b2fce4ac.svg",
-    "static/media/logo.svg": "/losevrs/mesto-react/static/media/logo.c6f11019.svg",
-    "static/media/onerror.jpg": "/losevrs/mesto-react/static/media/onerror.a6166131.jpg"
+    "main.css": "/mesto-react/static/css/main.c51bf684.chunk.css",
+    "main.js": "/mesto-react/static/js/main.98970c2a.chunk.js",
+    "main.js.map": "/mesto-react/static/js/main.98970c2a.chunk.js.map",
+    "runtime-main.js": "/mesto-react/static/js/runtime-main.36fb0e45.js",
+    "runtime-main.js.map": "/mesto-react/static/js/runtime-main.36fb0e45.js.map",
+    "static/js/2.d6310a79.chunk.js": "/mesto-react/static/js/2.d6310a79.chunk.js",
+    "static/js/2.d6310a79.chunk.js.map": "/mesto-react/static/js/2.d6310a79.chunk.js.map",
+    "index.html": "/mesto-react/index.html",
+    "precache-manifest.fba0716c168ee359d5ba55edf2337f7d.js": "/mesto-react/precache-manifest.fba0716c168ee359d5ba55edf2337f7d.js",
+    "service-worker.js": "/mesto-react/service-worker.js",
+    "static/css/main.c51bf684.chunk.css.map": "/mesto-react/static/css/main.c51bf684.chunk.css.map",
+    "static/js/2.d6310a79.chunk.js.LICENSE.txt": "/mesto-react/static/js/2.d6310a79.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/mesto-react/static/media/plus22.b2fce4ac.svg",
+    "static/media/logo.svg": "/mesto-react/static/media/logo.c6f11019.svg",
+    "static/media/onerror.jpg": "/mesto-react/static/media/onerror.a6166131.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.daa676ec.js",
+    "static/js/runtime-main.36fb0e45.js",
     "static/js/2.d6310a79.chunk.js",
-    "static/css/main.cd970ee9.chunk.css",
-    "static/js/main.124af7e2.chunk.js"
+    "static/css/main.c51bf684.chunk.css",
+    "static/js/main.98970c2a.chunk.js"
   ]
 }
