@@ -5,65 +5,61 @@ import ImageWithError from './ImageWithError'
 import Card from './Card';
 import { api } from '../utils/Api';
 
-export default class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userName: '',
-      userDescription: '',
-      userAvatar: avatar,
-      cards: [],
-      hidden: true
-    };
+export default (props) => {
 
-    this.handleAddPlaceClick = props.onAddPlace;
-  }
+  const [userName, setUserName] = React.useState('');
+  const [userDescription, setUserDescription] = React.useState('');
+  const [userAvatar, setUserAvatar] = React.useState(avatar);
+  const [cards, setCards] = React.useState([]);
+  const [isHidden, setIsHidden] = React.useState(false);
 
-  componentDidMount() {
+  const handleAddPlaceClick = props.onAddPlace.bind(this);
+  const handleEditProfileClick = props.onEditProfile.bind(this);
+  const handleEditAvatarClick = props.onEditAvatar.bind(this);
+
+  React.useEffect(() => {
     Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([userInfo, initialCards]) => {
-        this.setState({
-          userName: userInfo.name,
-          userDescription: userInfo.about,
-          userAvatar: userInfo.avatar,
-          cards: initialCards
-        })
+        setUserName(userInfo.name);
+        setUserDescription(userInfo.about);
+        setUserAvatar(userInfo.avatar);
+        setCards(initialCards);
       })
       .catch((error) => console.log('Ошибка запроса -> ' + error))
       .finally(() => {
-        this.setState({ hidden: false });
+        setIsHidden(false);
       });
-  }
+  }, []);
 
-  render() {
-    return (
-      <main className='main'>
-        <section className={`profile ${this.state.hidden && 'profile_hidden'}`}>
+  return (
+    <main className='main'>
+      <section className={`profile ${isHidden && 'profile_hidden'}`}>
+        <div className='profile__avatar-overlay'
+          onClick={handleEditAvatarClick} >
           <ImageWithError className='profile__avatar'
-            src={this.state.userAvatar}
-            alt='Аватар пользователя'
-            onClick={this.props.onEditAvatar} />
-          <div className='profile__info'>
-            <div className='profile__title'>
-              <h1 className='profile__name'>{this.state.userName}</h1>
-              <button className='profile__editbutton'
-                onClick={this.props.onEditProfile}
-                type="button" />
-            </div>
-            <p className='profile__about'>{this.state.userDescription}</p>
+            src={userAvatar}
+            alt='Аватар пользователя' />
+        </div>
+        <div className='profile__info'>
+          <div className='profile__title'>
+            <h1 className='profile__name'>{userName}</h1>
+            <button className='profile__editbutton'
+              onClick={handleEditProfileClick}
+              type='button' />
           </div>
-          <button className='profile__addbutton'
-            onClick={this.props.onAddPlace}
-            type="button" />
-        </section>
+          <p className='profile__about'>{userDescription}</p>
+        </div>
+        <button className='profile__addbutton'
+          onClick={handleAddPlaceClick}
+          type='button' />
+      </section>
 
-        <section className='placesphotos'>
-          {this.state.cards.map(card =>
-            <Card key={card._id}
-              card={card}
-              onCardClick={this.props.onCardClick} />)}
-        </section>
-      </main>
-    );
-  }
+      <section className='placesphotos'>
+        {cards.map(card =>
+          <Card key={card._id}
+            card={card}
+            onCardClick={props.onCardClick} />)}
+      </section>
+    </main>
+  );
 }

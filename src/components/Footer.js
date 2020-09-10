@@ -1,11 +1,9 @@
 import React from 'react';
 
-export default class Footer extends React.PureComponent {
-  render() {
+export default (props) => {
     return (
-      <footer className="footer">
-        <p className="footer__copyright">&copy; 2020 Mesto Russia</p>
+      <footer className='footer'>
+        <p className='footer__copyright'>&copy; 2020 Mesto Russia</p>
       </footer>
-    )
-  };
+    );
 }

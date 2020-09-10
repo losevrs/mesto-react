@@ -2,23 +2,21 @@ import React from 'react';
 import Popup from './Popup';
 import ImageWithError from './ImageWithError'
 
-export default class ImagePopup extends React.PureComponent {
-  render() {
-    return (
-      <Popup
-        name={this.props.name}
-        isOpened={this.props.isOpened}
-        onClose={this.props.onClose}>
-        <div className="popup__photoview">
-          <ImageWithError className="popup__image"
-            alt="Просмотр фото"
-            src={this.props.card.link} />
-          <h2 className="popup__imagetitle">{this.props.card.name}</h2>
-          <button className="popup__reset"
-            type="button"
-            onClick={this.props.onClose} />
-        </div>
-      </Popup>
-    );
-  }
+export default (props) => {
+  return (
+    <Popup
+      name={props.name}
+      isOpened={props.isOpened}
+      onClose={props.onClose}>
+      <div className='popup__photoview'>
+        <ImageWithError className='popup__image'
+          alt='Просмотр фото'
+          src={props.card.link}/>
+        <h2 className='popup__imagetitle'>{props.card.name}</h2>
+        <button className='popup__reset'
+          type='button'
+          onClick={props.onClose} />
+      </div>
+    </Popup>
+  );
 }

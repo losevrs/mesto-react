@@ -1,14 +1,12 @@
 import React from 'react';
 import logo from '../images/header/logo.svg';
 
-export default class Header extends React.PureComponent {
-  render() {
+export default (props) => {
     return (
-      <header className="header" >
-        <img className="header__logo"
+      <header className='header' >
+        <img className='header__logo'
           src={logo}
-          alt="Логотип" />
+          alt='Логотип' />
       </header>
-    )
-  };
+    );
 }
