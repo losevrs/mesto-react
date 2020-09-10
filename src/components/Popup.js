@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default (props) => {
 
@@ -9,6 +9,19 @@ export default (props) => {
       props.onClose();
     }
   }
+
+  const handleEscClose = (event) => {
+    if (event.key === 'Escape') {
+      props.onClose();
+    }
+  }
+
+  React.useEffect(() => {
+    document.addEventListener('keydown', handleEscClose);
+    return (() => {
+      document.removeEventListener('keydown', handleEscClose);
+    })
+  },[]);
 
   return (
     <section className={`popup popup_${props.name} ${props.isOpened && 'popup_opened'}`}

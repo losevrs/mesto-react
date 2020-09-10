@@ -104,7 +104,8 @@ export default (props) => {
 
       <PopupWithForm name='confirm'
         title='Вы уверены?'
-        buttonTitle='Да' />
+        buttonTitle='Да'
+        onClose={closeAllPopups}/>
 
       <PopupWithForm name='newavatar'
         title='Обновить аватар'
