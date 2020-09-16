@@ -19,25 +19,14 @@ export default (props) => {
 
   // Стейты для Main
   const [currentUser, setCurrentUser] = React.useState({});
-  //const [cards, setCards] = React.useState([]);
+  const [cards, setCards] = React.useState([]);
   const [isHidden, setIsHidden] = React.useState(true); //Видимость профиля в Main
 
-  // React.useEffect(() => {
-  //   Promise.all([api.getUserInfo(), api.getInitialCards()])
-  //     .then(([userInfo, initialCards]) => {
-  //       setCurrentUser(userInfo);
-  //       setCards(initialCards);
-  //     })
-  //     .catch((error) => console.log('Ошибка запроса -> ' + error))
-  //     .finally(() => {
-  //       setIsHidden(false);
-  //     });
-  // }, []);
-
   React.useEffect(() => {
-    api.getUserInfo()
-      .then((userInfo) => {
+    Promise.all([api.getUserInfo(), api.getInitialCards()])
+      .then(([userInfo, initialCards]) => {
         setCurrentUser(userInfo);
+        setCards(initialCards);
       })
       .catch((error) => console.log('Ошибка запроса -> ' + error))
       .finally(() => {
@@ -48,6 +37,30 @@ export default (props) => {
   const handleCardClick = (card) => {
     setSelectedCard(card);
     setIsImagePopupOpen(true);
+  }
+
+  const handleCardLike = (card) => {
+    const isLiked = card.likes.some((item) => { return item._id === currentUser._id; });
+
+    api.like(card._id, !isLiked)
+      .then((newCard) => {
+        const newCards = cards.map((c) => c._id === card._id ? newCard : c);
+        setCards(newCards);
+      })
+      .catch((error) => console.log('Ошибка обработки Like -> ' + error))
+  }
+
+  const handleCardDelete = (card) => {
+    api.deleteCard(card._id)
+      .then(() => {
+        const newCards = [...cards];
+        const index = newCards.findIndex((item) => { return item._id === card._id });
+        if (index >=0) {
+          newCards.splice(index, 1);
+          setCards(newCards);
+        }
+      })
+      .catch((error) => console.log('Ошибка удаления карточки -> ' + error))
   }
 
   const closeAllPopups = () => {
@@ -79,8 +92,10 @@ export default (props) => {
           onAddPlace={handleAddPlaceClick}
           onEditAvatar={handleEditAvatarClick}
           onCardClick={handleCardClick}
+          onCardLike={handleCardLike}
+          onCardDelete={handleCardDelete}
           isHidden={isHidden}
-          // cards={cards}
+          cards={cards}
         />
 
         <Footer />

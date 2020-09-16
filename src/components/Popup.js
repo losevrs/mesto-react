@@ -10,18 +10,19 @@ export default (props) => {
     }
   }
 
-  const handleEscClose = (event) => {
+  const handleEscClose = React.useCallback((event) => {
     if (event.key === 'Escape') {
       props.onClose();
     }
-  }
+    // eslint-disable-next-line
+  },[]);
 
   React.useEffect(() => {
-    document.addEventListener('keydown', handleEscClose);
-    return (() => {
-      document.removeEventListener('keydown', handleEscClose);
-    })
-  }, []);
+    props.isOpened 
+    ? document.addEventListener('keydown', handleEscClose)
+    : document.removeEventListener('keydown', handleEscClose);
+    // eslint-disable-next-line
+  }, [props.isOpened]);
 
   return (
     <section className={`popup popup_${props.name} ${props.isOpened && 'popup_opened'}`}
