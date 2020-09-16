@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default (props) => {
 
@@ -21,7 +21,7 @@ export default (props) => {
     return (() => {
       document.removeEventListener('keydown', handleEscClose);
     })
-  },[]);
+  }, []);
 
   return (
     <section className={`popup popup_${props.name} ${props.isOpened && 'popup_opened'}`}
