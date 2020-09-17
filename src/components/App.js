@@ -170,7 +170,7 @@ export default () => {
           isOpened={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
-          buttonTitle={isSaving ? 'Сохранение' : 'Сохранить'}
+          buttonTitle={isSaving ? 'Сохранение...' : 'Сохранить'}
         />
 
         <EditAvatarPopup
@@ -178,21 +178,21 @@ export default () => {
           onClose={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
           value={currentUser.avatar}
-          buttonTitle={isSaving ? 'Сохранение' : 'Сохранить'}
+          buttonTitle={isSaving ? 'Сохранение...' : 'Сохранить'}
         />
 
         <AddPlacePopup
           isOpened={isAddPlacePopupOpen}
           onClose={closeAllPopups}
           onCreateCard={handleCreateCard}
-          buttonTitle={isSaving ? 'Сохранение' : 'Сохранить'}
+          buttonTitle={isSaving ? 'Сохранение...' : 'Сохранить'}
         />
 
         <ConfirmPopup
           onConfirm={handleCardDelete}
           onClose={closeAllPopups}
           isOpened={isConfirmPopupOpen}
-          buttonTitle={isSaving ? 'Сохранение' : 'Да'}
+          buttonTitle={isSaving ? 'Сохранение...' : 'Да'}
         />
 
         <ImagePopup
