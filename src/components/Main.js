@@ -2,7 +2,7 @@ import React from 'react';
 import ImageWithError from './ImageWithError'
 
 import Card from './Card';
-import { useCurentUserContext } from '../contexts/CurrentUserContext';
+import { useCurrentUserContext } from '../contexts/CurrentUserContext';
 
 export default (props) => {
 
@@ -10,7 +10,7 @@ export default (props) => {
   const handleEditProfileClick = props.onEditProfile.bind(this);
   const handleEditAvatarClick = props.onEditAvatar.bind(this);
 
-  const currentUser = useCurentUserContext();
+  const currentUser = useCurrentUserContext();
 
   return (
     <main className='main'>

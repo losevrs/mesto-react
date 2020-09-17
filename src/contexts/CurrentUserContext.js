@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
 
-const CurentUserContext = React.createContext();
+const CurrentUserContext = React.createContext();
 
-export const useCurentUserContext = () => {
-  return useContext(CurentUserContext);
+export const useCurrentUserContext = () => {
+  return useContext(CurrentUserContext);
 }
 
-export const CurentUserContextProvider = (props) => {
+export const CurrentUserContextProvider = (props) => {
   return (
-    <CurentUserContext.Provider value={props.value}>
+    <CurrentUserContext.Provider value={props.value}>
       {props.children}
-    </CurentUserContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }

@@ -5,7 +5,7 @@ import ImageWithError from './ImageWithError'
 export default (props) => {
   return (
     <Popup
-      name={props.name}
+      name='view'
       isOpened={props.isOpened}
       onClose={props.onClose}>
       <div className='popup__photoview'>

@@ -1,10 +1,10 @@
 import React from 'react';
 import ImageWithError from './ImageWithError'
 
-import { useCurentUserContext } from '../contexts/CurrentUserContext';
+import { useCurrentUserContext } from '../contexts/CurrentUserContext';
 
 export default (props) => {
-  const currentUser = useCurentUserContext();
+  const currentUser = useCurrentUserContext();
 
   const canAddDelete = props.card.owner._id === currentUser._id;
   const likeShow = props.card.likes.some((item) => { return item._id === currentUser._id; });
