@@ -26,7 +26,7 @@ export default (props) => {
 
   return (
     <section className={`popup popup_${props.name} ${props.isOpened && 'popup_opened'}`}
-      onClick={closeOnOverlayClick}
+      onMouseDown={closeOnOverlayClick}
       ref={popupOverlay}>
       {props.children}
     </section>

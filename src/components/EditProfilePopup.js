@@ -1,6 +1,8 @@
 import React from 'react'
 import PopupWithForm from './PopupWithForm';
 
+import InputWithBrowserValidation from './InputWithBrowserValidation';
+
 import { useCurrentUserContext } from '../contexts/CurrentUserContext';
 
 export default props => {
@@ -8,7 +10,14 @@ export default props => {
   const currentUser = useCurrentUserContext();
 
   const [userName, setUserName] = React.useState(currentUser.name);
+  const [userNameIsValid, setUserNameIsValid] = React.useState(true);
+  const [isUserNameTouched, setIsUserNameTouched] = React.useState(false);
+
   const [description, setDescription] = React.useState(currentUser.about);
+  const [descriptionIsValid, setDescriptionIsValid] = React.useState(true);
+  const [isDescriptionTouched, setIsDescriptionTouched] = React.useState(false);
+
+  const buttonEnabled = userNameIsValid && descriptionIsValid;
 
   React.useEffect(() => {
     setUserName(currentUser.name);
@@ -16,10 +25,12 @@ export default props => {
   }, [currentUser]);
 
   const handleChangeName = (event) => {
+    setIsUserNameTouched(true);
     setUserName(event.target.value);
   }
 
   const handleChangeDescription = (event) => {
+    setIsDescriptionTouched(true);
     setDescription(event.target.value);
   }
 
@@ -36,11 +47,13 @@ export default props => {
     <PopupWithForm name='profileedit'
       title='Редактировать профиль'
       buttonTitle={props.buttonTitle}
+      buttonEnabled={buttonEnabled}
       isOpened={props.isOpened}
       onClose={props.onClose}
       onSubmit={handleSubmit}>
 
-      <input className='popup__input popup__input_name popup__input_top'
+      <InputWithBrowserValidation
+        className='popup__input popup__input_name popup__input_top'
         type='text'
         name='name'
         placeholder='Имя'
@@ -49,11 +62,11 @@ export default props => {
         required
         minLength='2'
         maxLength='40'
+        isTouched={isUserNameTouched}
+        onButtonStatusChange={setUserNameIsValid}
       />
-      <span id='popup__input_name_error'
-        className='popup__input_type_error' />
 
-      <input className='popup__input popup__input_about'
+      <InputWithBrowserValidation className='popup__input popup__input_about'
         type='text'
         name='about'
         onChange={handleChangeDescription}
@@ -62,9 +75,9 @@ export default props => {
         required
         minLength='2'
         maxLength='200'
+        isTouched={isDescriptionTouched}
+        onButtonStatusChange={setDescriptionIsValid}
       />
-      <span id='popup__input_about_error'
-        className='popup__input_type_error' />
 
     </PopupWithForm>
   );
