@@ -14,6 +14,13 @@ export default props => {
 
   const buttonEnabled = nameIsValid && linkIsValid;
 
+  const resetInputs = () => {
+    setName('');
+    setLink('');
+    setIsNameTouched(false);
+    setIsLinkTouched(false);
+  }
+
   const handleChangeName = (event) => {
     setIsNameTouched(true);
     setName(event.target.value);
@@ -24,6 +31,11 @@ export default props => {
     setLink(event.target.value);
   }
 
+  const handleOnClose = () => {
+    props.onClose();
+    resetInputs();
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -31,6 +43,8 @@ export default props => {
       name,
       link
     });
+    props.onClose();
+    resetInputs();
   }
 
   return (
@@ -39,7 +53,7 @@ export default props => {
       buttonTitle={props.buttonTitle}
       buttonEnabled={buttonEnabled}
       isOpened={props.isOpened}
-      onClose={props.onClose}
+      onClose={handleOnClose}
       onSubmit={handleSubmit}
     >
 

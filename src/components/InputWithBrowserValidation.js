@@ -21,6 +21,7 @@ export default (props) => {
     if (props.refInput) {
       props.refInput(input);
     }
+    // eslint-disable-next-line
   }, [input]);
 
   useEffect(() => {

@@ -21,7 +21,8 @@ export default props => {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    // Исключительно потому что в задании сказано использовать тут реф - весь этот огород....
+    // А по хорошему - тут должен быть управляемый компонент. И тогда все по божески.
     props.onUpdateAvatar({
       avatar: input.current.value
     });
@@ -37,7 +38,7 @@ export default props => {
       onSubmit={handleSubmit}>
 
       <InputWithBrowserValidation
-        className='popup__input popup__input_avatar  popup__input_top'
+        className='popup__input popup__input_top'
         type='url'
         name='avatar'
         placeholder='Ссылка на картинку'

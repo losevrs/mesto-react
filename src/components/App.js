@@ -121,9 +121,6 @@ export default () => {
       })
       .catch((err) => {
         console.log('Ошибка создания карточки : ', err);
-      })
-      .finally(() => {
-        closeAllPopups();
       });
   }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../images/header/logo.svg';
 
-export default (props) => {
+export default () => {
     return (
       <header className='header' >
         <img className='header__logo'
