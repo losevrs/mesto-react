@@ -3,28 +3,28 @@ import ImageWithError from './ImageWithError'
 
 import { useCurrentUserContext } from '../contexts/CurrentUserContext';
 
-export default (props) => {
+export default ({card, onCardClick, onCardLike, onCardDelete}) => {
   const currentUser = useCurrentUserContext();
 
-  const canAddDelete = props.card.owner._id === currentUser._id;
-  const likeShow = props.card.likes.some((item) => { return item._id === currentUser._id; });
+  const canAddDelete = card.owner._id === currentUser._id;
+  const likeShow = card.likes.some((item) => { return item._id === currentUser._id; });
 
   const handleCardClick = () => {
-    props.onCardClick(props.card);
+    onCardClick(card);
   }
 
   const handleCardLike = () => {
-    props.onCardLike(props.card);
+    onCardLike(card);
   }
 
   const handleCardDelete = () => {
-    props.onCardDelete(props.card);
+    onCardDelete(card);
   }
 
   return (
     <div className='photocard'>
       <ImageWithError className='photocard__viewport'
-        src={props.card.link}
+        src={card.link}
         alt='Фото места'
         onClick={handleCardClick}
         onError={null} />
@@ -35,13 +35,13 @@ export default (props) => {
       />
 
       <div className='photocard__description'>
-        <h2 className='photocard__placename'>{props.card.name}</h2>
+        <h2 className='photocard__placename'>{card.name}</h2>
         <div className='photocard__likes'>
           <button className={`photocard__like ${likeShow && 'photocard__like_on'}`}
             type='button'
             onClick={handleCardLike}
           />
-          <span className='photocard__count'>{props.card.likes.length}</span>
+          <span className='photocard__count'>{card.likes.length}</span>
         </div>
       </div>
     </div>

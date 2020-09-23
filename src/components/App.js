@@ -36,7 +36,7 @@ export default () => {
         setCurrentUser(userInfo);
         setCards(initialCards);
       })
-      .catch((error) => console.log('Ошибка запроса : ' + error))
+      .catch((error) => console.log('Ошибка запроса : ', error))
       .finally(() => {
         setIsHidden(false);
       });
@@ -55,7 +55,7 @@ export default () => {
         const newCards = cards.map((c) => c._id === card._id ? newCard : c);
         setCards(newCards);
       })
-      .catch((error) => console.log('Ошибка обработки лайка : ' + error))
+      .catch((error) => console.log('Ошибка обработки лайка : ', error))
   }
 
   const handleCardConfirm = (card) => {
@@ -73,11 +73,9 @@ export default () => {
           newCards.splice(index, 1);
           setCards(newCards);
         }
-      })
-      .catch((error) => console.log('Ошибка удаления карточки : ' + error))
-      .finally(() => {
         closeAllPopups();
       })
+      .catch((error) => console.log('Ошибка удаления карточки : ', error));
   }
 
   const handleUpdateUser = ({ name, about }) => {
@@ -85,13 +83,9 @@ export default () => {
     api.saveProfile({ 'name': name, 'about': about })
       .then((userInfo) => {
         setCurrentUser(userInfo);
-      })
-      .catch((err) => {
-        console.log('Ошибка изменения данных пользователя : ', err);
-      })
-      .finally(() => {
         closeAllPopups();
-      });
+      })
+      .catch((error) => console.log('Ошибка изменения данных пользователя : ', error));
   }
 
   const handleUpdateAvatar = ({ avatar }) => {
@@ -99,13 +93,9 @@ export default () => {
     api.saveAvatar({ 'avatar': avatar })
       .then((userInfo) => {
         setCurrentUser(userInfo);
-      })
-      .catch((err) => {
-        console.log('Ошибка изменения аватара пользователя : ', err);
-      })
-      .finally(() => {
         closeAllPopups();
-      });
+      })
+      .catch((error) => console.log('Ошибка изменения аватара пользователя : ', error));
   }
 
   const handleCreateCard = (card) => {
@@ -119,9 +109,7 @@ export default () => {
           ]);
         }
       })
-      .catch((err) => {
-        console.log('Ошибка создания карточки : ', err);
-      });
+      .catch((error) => console.log('Ошибка создания карточки : ', error));
   }
 
   const closeAllPopups = () => {
