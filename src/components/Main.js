@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageWithError from './ImageWithError'
+import ImageWithError from './UIelements/ImageWithError'
 
 import Card from './Card';
 import { useCurrentUserContext } from '../contexts/CurrentUserContext';

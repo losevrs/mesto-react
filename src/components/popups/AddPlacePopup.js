@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PopupWithForm from './PopupWithForm';
-import InputWithBrowserValidation from './InputWithBrowserValidation';
+import InputWithBrowserValidation from '../UIelements/InputWithBrowserValidation';
 
 export default props => {
 

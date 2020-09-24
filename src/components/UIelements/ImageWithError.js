@@ -1,5 +1,5 @@
 import React from 'react'
-import errorImage from '../images/onerror.jpg';
+import errorImage from '../../images/onerror.jpg';
 
 export default (props) => {
 

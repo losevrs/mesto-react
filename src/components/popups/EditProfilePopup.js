@@ -1,9 +1,9 @@
 import React from 'react'
 import PopupWithForm from './PopupWithForm';
 
-import InputWithBrowserValidation from './InputWithBrowserValidation';
+import InputWithBrowserValidation from '../UIelements/InputWithBrowserValidation';
 
-import { useCurrentUserContext } from '../contexts/CurrentUserContext';
+import { useCurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export default props => {
 

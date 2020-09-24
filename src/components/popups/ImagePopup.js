@@ -1,6 +1,6 @@
 import React from 'react';
 import Popup from './Popup';
-import ImageWithError from './ImageWithError'
+import ImageWithError from '../UIelements/ImageWithError'
 
 export default (props) => {
   return (

@@ -4,11 +4,11 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 
-import EditProfilePopup from './EditProfilePopup';
-import EditAvatarPopup from './EditAvatarPopup';
-import AddPlacePopup from './AddPlacePopup';
-import ConfirmPopup from './ConfirmPopup';
-import ImagePopup from './ImagePopup';
+import EditProfilePopup from './popups/EditProfilePopup';
+import EditAvatarPopup from './popups/EditAvatarPopup';
+import AddPlacePopup from './popups/AddPlacePopup';
+import ConfirmPopup from './popups/ConfirmPopup';
+import ImagePopup from './popups/ImagePopup';
 
 import { api } from '../utils/Api';
 
