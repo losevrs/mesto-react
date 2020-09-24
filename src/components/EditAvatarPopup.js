@@ -4,28 +4,34 @@ import InputWithBrowserValidation from './InputWithBrowserValidation';
 
 export default props => {
 
-  const [isTouched, setIsTouched] = useState(false);
-  const [input, setInput] = useState();
+  const [userAvatar, setUserAvatar] = useState('');
+  const [userAvatarIsValid, setUserAvatarIsValid] = useState(true);
+  const [isAvatarTouched, setIsAvatarTouched] = useState(false);
 
-  const [buttonEnabled, setButtonEnabled] = useState(true);
+  const buttonEnabled = userAvatarIsValid;
 
-  const setButtonStatus = (status) => {
-    setButtonEnabled(status);
+  const resetInput = () => {
+    setUserAvatar('');
+    setIsAvatarTouched(false);
   }
 
-  const handleChange = () => {
-    if (!isTouched) {
-      setIsTouched(true);
-    }
+  const handleChangeAvatar = (event) => {
+    setIsAvatarTouched(true);
+    setUserAvatar(event.target.value);
   }
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Исключительно потому что в задании сказано использовать тут реф - весь этот огород....
-    // А по хорошему - тут должен быть управляемый компонент. И тогда все по божески.
+
     props.onUpdateAvatar({
-      avatar: input.current.value
+      avatar: userAvatar
     });
+    resetInput();
+  }
+
+  const handleOnClose = () => {
+    props.onClose();
+    resetInput();
   }
 
   return (
@@ -34,7 +40,7 @@ export default props => {
       buttonTitle={props.buttonTitle}
       buttonEnabled={buttonEnabled}
       isOpened={props.isOpened}
-      onClose={props.onClose}
+      onClose={handleOnClose}
       onSubmit={handleSubmit}>
 
       <InputWithBrowserValidation
@@ -42,11 +48,11 @@ export default props => {
         type='url'
         name='avatar'
         placeholder='Ссылка на картинку'
-        onChange={handleChange}
+        value={userAvatar}
+        onChange={handleChangeAvatar}
         required
-        isTouched={isTouched}
-        refInput={el => (setInput(el))}
-        onButtonStatusChange={setButtonStatus}
+        isTouched={isAvatarTouched}
+        onButtonStatusChange={setUserAvatarIsValid}
       />
 
     </PopupWithForm>

@@ -18,13 +18,6 @@ export default (props) => {
   }
 
   useEffect(() => {
-    if (props.refInput) {
-      props.refInput(input);
-    }
-    // eslint-disable-next-line
-  }, [input]);
-
-  useEffect(() => {
     validate();
   });
 
